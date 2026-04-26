@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice &amp; Real-Time Agents &mdash; LLM Hub</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a; --bg-card: #0d1117; --bg-code: #161b22;
+            --text-primary: #e6edf3; --text-secondary: #8b949e;
+            --accent: #76B900; --accent-dim: #76B90044; --accent-glow: #76B90033;
+            --border: #21262d;
+            --font-display: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+            --font-body: 'Inter', sans-serif;
+            --max-width: 960px;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { background: var(--bg-primary); color: var(--text-primary);
+               font-family: var(--font-body); font-size: 17px; line-height: 1.7;
+               overflow-x: hidden; }
+        .hero { min-height: 60vh; display: flex; flex-direction: column;
+                justify-content: center; align-items: center;
+                padding: 4rem 1.5rem 3rem; text-align: center; position: relative; }
+        .hero::before { content: ''; position: absolute; top: 0; left: 50%;
+                        transform: translateX(-50%); width: 600px; height: 600px;
+                        background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+                        pointer-events: none; z-index: 0; }
+        .hero > * { position: relative; z-index: 1; }
+        .series-label { font-family: var(--font-mono); font-size: 0.85rem;
+                        color: var(--accent); letter-spacing: 0.15em;
+                        text-transform: uppercase; margin-bottom: 1rem; }
+        .hero h1 { font-family: var(--font-display);
+                   font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+                   color: var(--text-primary); line-height: 1.2; margin-bottom: 1rem; }
+        .hero h1 .accent { color: var(--accent); }
+        .hero .subtitle { font-size: 1.1rem; color: var(--text-secondary);
+                          max-width: 720px; margin-bottom: 1.5rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem;
+                justify-content: center; margin-bottom: 1rem; }
+        .tag { font-family: var(--font-mono); font-size: 0.75rem;
+               padding: 0.25rem 0.75rem; border-radius: 999px;
+               border: 1px solid var(--accent); color: var(--accent);
+               background: var(--accent-dim); white-space: nowrap; }
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 2rem 1.5rem; }
+        h2 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700;
+             color: var(--accent); margin: 1rem 0 1.25rem; }
+        .deck-list { display: flex; flex-direction: column; gap: 0.6rem;
+                     list-style: none; padding: 0; counter-reset: deck; }
+        .deck-card { display: flex; gap: 1rem; padding: 1rem 1.25rem;
+                     background: var(--bg-card); border: 1px solid var(--border);
+                     border-left: 3px solid var(--accent); border-radius: 6px;
+                     transition: border-color 0.15s; counter-increment: deck; }
+        .deck-card:hover { border-color: var(--accent); }
+        .deck-card.roadmap { border-left-color: #ffa657; }
+        .deck-card.roadmap:hover { border-color: #ffa657; }
+        .deck-card .num { font-family: var(--font-mono); font-size: 0.8rem;
+                          color: var(--accent); min-width: 2rem;
+                          padding-top: 0.15rem; }
+        .deck-card.roadmap .num { color: #ffa657; }
+        .deck-card .num::before { content: counter(deck, decimal-leading-zero); }
+        .deck-card .body { flex: 1; min-width: 0; }
+        .deck-card .deck-title { font-family: var(--font-display); font-size: 1.05rem;
+                                 font-weight: 600; color: var(--text-primary);
+                                 margin-bottom: 0.2rem; }
+        .deck-card a.deck-title { text-decoration: none; }
+        .deck-card a.deck-title:hover { color: var(--accent); }
+        .deck-card .desc { font-size: 0.92rem; color: var(--text-secondary); }
+        .deck-card .meta { font-family: var(--font-mono); font-size: 0.7rem;
+                           color: var(--text-secondary); margin-top: 0.4rem;
+                           display: flex; gap: 0.6rem; flex-wrap: wrap; }
+        .badge { display: inline-block; font-family: var(--font-mono);
+                 font-size: 0.65rem; padding: 0.1rem 0.5rem; border-radius: 999px;
+                 border: 1px solid var(--border); color: var(--text-secondary); }
+        .badge.live { border-color: var(--accent); color: var(--accent);
+                      background: var(--accent-dim); }
+        .badge.roadmap { border-color: #ffa657; color: #ffa657;
+                         background: rgba(255,166,87,0.08); }
+        .callout { background: var(--bg-card); border-left: 3px solid var(--accent);
+                   border-radius: 0 8px 8px 0; padding: 1rem 1.25rem; margin: 1.5rem 0; }
+        .callout p { margin-bottom: 0; color: var(--text-secondary); }
+        .callout p strong { color: var(--text-primary); }
+        .footer { text-align: center; padding: 3rem 1.5rem;
+                  color: var(--text-secondary); font-size: 0.85rem;
+                  border-top: 1px solid var(--border); max-width: var(--max-width);
+                  margin: 3rem auto 0; }
+        .footer a { color: var(--accent); text-decoration: none; }
+        .footer a:hover { text-decoration: underline; }
+        @media (max-width: 640px) {
+            .hero h1 { font-size: 1.8rem; }
+            .deck-card { flex-direction: column; gap: 0.3rem; }
+        }
+    </style>
+
+</head>
+<body>
+<header class="hero">
+    <div class="series-label">LLM Hub &mdash; Voice & Real-Time Agents</div>
+    <h1>Voice &amp; <span class="accent">Real-Time</span> Agents</h1>
+    <p class="subtitle">Streaming ASR + TTS, real-time frameworks (Pipecat, LiveKit Agents, OpenAI Realtime), and the latency &amp; turn-taking work that makes voice feel human.</p>
+    <div class="tags"><span class="tag">Whisper</span><span class="tag">Deepgram</span><span class="tag">ElevenLabs</span><span class="tag">Pipecat</span><span class="tag">LiveKit</span><span class="tag">Realtime API</span></div>
+</header>
+<main class="container">
+    <h2>Presentations in This Series</h2>
+    <ol class="deck-list">
+<li class="deck-card roadmap"><div class="num"></div><div class="body"><div class="deck-title">ASR &amp; TTS Stack</div><div class="desc">Whisper, Deepgram, Soniox, Gladia, AssemblyAI; ElevenLabs, Cartesia, OpenAI, PlayHT; latency-first TTS; voice cloning ethics; OSS options (Coqui XTTS, F5-TTS).</div><div class="meta"><span class="badge roadmap">in development</span></div></div></li>
+<li class="deck-card roadmap"><div class="num"></div><div class="body"><div class="deck-title">Real-Time Frameworks</div><div class="desc">Pipecat pipeline architecture; LiveKit Agents on WebRTC; OpenAI Realtime API; gpt-4o speech-to-speech; Gemini Live; telephony bridges.</div><div class="meta"><span class="badge roadmap">in development</span></div></div></li>
+<li class="deck-card roadmap"><div class="num"></div><div class="body"><div class="deck-title">Latency &amp; Turn-Taking</div><div class="desc">The 800 ms target; ASR/LLM-TTFT/TTS-first-chunk/network budgets; VAD &amp; semantic end-of-utterance; interruption handling; metrics.</div><div class="meta"><span class="badge roadmap">in development</span></div></div></li>
+    </ol>
+    <div class="callout"><p><strong>Status:</strong> sub-hub created with roadmap. Leaf decks land progressively over upcoming sessions.</p></div>
+</main>
+
+<footer class="footer">
+    <p>Part of the <a href="https://github.com/BrendanJamesLynskey/LLMs">LLMs hub</a> &mdash; an index of presentation series for AI/LLM engineers.</p>
+</footer>
+
+</body>
+</html>
