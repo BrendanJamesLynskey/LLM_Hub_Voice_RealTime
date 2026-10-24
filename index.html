@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-concept="tape" lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,12 +102,57 @@
 <!-- portfolio-strip:start (brief 40) -->
 <style>.bl-strip{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .6rem;box-sizing:border-box;width:100%;align-self:stretch;margin:0;padding:.45rem 1rem;background:var(--bg-card,var(--surface,var(--bg2,rgba(127,127,127,.08))));border-bottom:1px solid var(--border,rgba(127,127,127,.25));color:var(--text-secondary,var(--text2,var(--fg-dim,var(--muted,inherit))));font:500 13px/1.5 var(--font-body,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif);letter-spacing:.01em;position:relative;z-index:50;text-align:left}.bl-strip b{color:var(--text-primary,var(--text,var(--fg,inherit)));font-weight:700}.bl-strip a{color:var(--text-primary,var(--text,var(--fg,inherit)));text-decoration:underline;text-decoration-color:var(--accent,currentColor);text-decoration-thickness:2px;text-underline-offset:4px;padding:.15rem 0}.bl-strip a:hover,.bl-strip a:focus-visible{text-decoration-thickness:3px}.bl-strip span{opacity:.6}</style>
 <!-- portfolio-strip:end -->
+<style id="deck-concept">
+html[data-concept=tape] .hero{min-height:auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);column-gap:2.75rem;align-items:start;align-content:start;justify-items:start;text-align:left;max-width:1180px;margin:0 auto;padding:2rem 1.75rem 3.5rem}
+html[data-concept=tape] .hero::before,html[data-concept=tape] .hero::after{display:none}
+html[data-concept=tape] .hero>*{grid-column:1;margin-left:0;margin-right:0}
+html[data-concept=tape] .hero .series-label{display:none}
+html[data-concept=tape] .cx-head{grid-column:1/-1;width:100%;display:flex;justify-content:space-between;gap:1rem;font-family:var(--font-mono);font-size:.8rem;color:var(--text-secondary);border-bottom:1px solid var(--border);padding-bottom:.5rem;margin-bottom:2.25rem}
+html[data-concept=tape] .cx-head span:first-child{color:var(--text-primary)}
+html[data-concept=tape] .hero h1{font-size:clamp(2rem,4.3vw,3.2rem);line-height:1.08;letter-spacing:-.015em;margin-bottom:1rem}
+html[data-concept=tape] .hero h1 .accent{color:var(--accent)}
+html[data-concept=tape] .hero .subtitle{max-width:none;margin-bottom:1.5rem}
+html[data-concept=tape] .hero .tags{justify-content:flex-start;gap:.25rem 1rem;margin-bottom:1.25rem}
+html[data-concept=tape] .tag{background:none;border:0;border-radius:0;padding:0;color:var(--text-primary);font-family:var(--font-mono);font-size:.8rem}
+html[data-concept=tape] .hero .tag::before{content:'◉\00a0';color:var(--accent)}
+html[data-concept=tape] .hero .pipeline{justify-content:flex-start;margin-bottom:0}
+html[data-concept=tape] .pipeline-step{background:none;border:0;border-radius:0;padding:0;color:var(--text-secondary);font-family:var(--font-mono);font-size:.78rem}
+html[data-concept=tape] .cx-fig{grid-column:2;grid-row:2/span 6;width:100%;margin:0}
+html[data-concept=tape] .cx-fig figcaption{font-size:.88rem;line-height:1.5;color:var(--text-secondary);margin-top:.55rem}
+html[data-concept=tape] .concept-art{display:block;width:100%;height:auto;overflow:hidden}
+html[data-concept=tape] .slide-number{font-family:var(--font-mono);font-size:.78rem;font-weight:400;color:var(--text-secondary);top:4.4rem;right:1.5rem}
+html[data-concept=tape] .slide-number::before{content:'take\00a0'}
+html[data-concept=tape] .slide h2{color:var(--text-primary);padding-right:3.5rem}
+html[data-concept=tape] .slide h2::after{content:'';display:block;width:4rem;height:3px;margin-top:.55rem;background:#e4c27f}
+html[data-concept=tape] .callout .callout-label,html[data-concept=tape] .metric .metric-label{text-transform:none;letter-spacing:0;font-size:.82rem}
+html[data-concept=tape] .callout,html[data-concept=tape] .diagram-grid,html[data-concept=tape] .canvas-wrap,html[data-concept=tape] .control-panel,html[data-concept=tape] .diagram-panel,html[data-concept=tape] .metric,html[data-concept=tape] .btn,html[data-concept=tape] .tag{border-radius:2px}
+@media (max-width:820px){
+ html[data-concept=tape] .hero{grid-template-columns:minmax(0,1fr);padding:1.25rem 1rem 2.5rem}
+ html[data-concept=tape] .cx-fig{grid-column:1;grid-row:auto;order:10;margin-top:1.5rem}
+}
+
+html[data-concept=tape] .concept-art{filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
+html[data-concept=tape] .concept-art .tp-bg{fill:#13272f;stroke:#274550}
+html[data-concept=tape] .concept-art .tp-tape{fill:#5a3b26}
+html[data-concept=tape] .concept-art .tp-edge{stroke:#2e1d12;stroke-width:2}
+html[data-concept=tape] .concept-art .tp-user,html[data-concept=tape] .concept-art .tp-agent{fill:none;stroke-width:1.1}
+html[data-concept=tape] .concept-art .tp-user{stroke:#f3dfb0}
+html[data-concept=tape] .concept-art .tp-agent{stroke:#9fe0cf}
+html[data-concept=tape] .concept-art .tp-s1{fill:#8cbadb}
+html[data-concept=tape] .concept-art .tp-s2{fill:#e4c27f}
+html[data-concept=tape] .concept-art .tp-s3{fill:#94ceb6}
+html[data-concept=tape] .concept-art .tp-vad{fill:rgba(240,138,108,.25);stroke:#f08a6c;stroke-dasharray:3 2}
+html[data-concept=tape] .concept-art .tp-mark{stroke:#f08a6c;stroke-width:1.2;stroke-dasharray:4 3}
+html[data-concept=tape] .concept-art text{font-family:var(--font-mono);fill:#bcccc9;font-size:9.5px}
+html[data-concept=tape] .concept-art .tp-dark{fill:#13272f;font-weight:600}
+</style>
 </head>
 <body>
 <!-- portfolio-strip:start (brief 40) -->
 <nav class="bl-strip" aria-label="Portfolio"><b>Brendan Lynskey</b><span aria-hidden="true">·</span><a href="https://brendanjameslynskey.github.io/">Portfolio home</a><span aria-hidden="true">·</span><a href="https://brendanjameslynskey.github.io/#sites">Interactive sites</a></nav>
 <!-- portfolio-strip:end -->
 <header class="hero">
+<!-- deck-concept:start --><div class="cx-head" aria-hidden="true"><span>Voice & real-time agents</span><span>Index</span></div><figure class="cx-fig"><svg class="concept-art" viewBox="0 0 440 280" role="img" aria-label="User speech, ASR, LLM and TTS stages, then agent speech on a tape" xmlns="http://www.w3.org/2000/svg"><rect class="tp-bg" width="440" height="280" rx="4"/><rect class="tp-tape" x="0" y="70" width="440" height="120"/><line class="tp-edge" x1="0" x2="440" y1="70" y2="70"/><line class="tp-edge" x1="0" x2="440" y1="190" y2="190"/><path class="tp-user" d="M14 110 L15.5 112.1 L17 112.5 L18.5 107 L20 109.9 L21.5 109.1 L23 113.1 L24.5 116.6 L26 99.8 L27.5 97.2 L29 119.7 L30.5 108 L32 118.2 L33.5 94 L35 108.2 L36.5 117.2 L38 101.3 L39.5 124 L41 122.3 L42.5 96.3 L44 96.8 L45.5 111.1 L47 120.6 L48.5 107.4 L50 104.3 L51.5 108.6 L53 102.4 L54.5 106 L56 109.2 L57.5 110 L59 107.3 L60.5 107.5 L62 107.5 L63.5 109.6 L65 108.1 L66.5 105.4 L68 113.5 L69.5 110.7 L71 111.9 L72.5 105.4 L74 118.2 L75.5 116.8 L77 102.1 L78.5 106.1 L80 115.6 L81.5 115.8 L83 122.9 L84.5 107.6 L86 120.8 L87.5 115.8 L89 103.1 L90.5 113.1 L92 123.8 L93.5 122.5 L95 110.2 L96.5 113.1 L98 94.4 L99.5 101.7 L101 119 L102.5 107.6 L104 101.5 L105.5 111.2 L107 114.3 L108.5 113.3 L110 108 L111.5 109.2 L113 110.1 L114.5 112.4 L116 110.1 L117.5 109.6"/><rect class="tp-s1" x="120" y="132" width="70" height="30"/><text class="tp-t tp-dark" x="155.0" y="151" text-anchor="middle">ASR</text><rect class="tp-s2" x="190" y="132" width="110" height="30"/><text class="tp-t tp-dark" x="245.0" y="151" text-anchor="middle">LLM</text><rect class="tp-s3" x="300" y="132" width="50" height="30"/><text class="tp-t tp-dark" x="325.0" y="151" text-anchor="middle">TTS</text><path class="tp-agent" d="M350 110 L351.5 113.2 L353 105.2 L354.5 104.1 L356 115.8 L357.5 114.8 L359 114 L360.5 105 L362 113 L363.5 113.3 L365 112.7 L366.5 98.3 L368 107.5 L369.5 106.2 L371 118.1 L372.5 128 L374 126.1 L375.5 111.5 L377 108.1 L378.5 102.6 L380 96 L381.5 96.7 L383 109.1 L384.5 105.7 L386 107.4 L387.5 117.5 L389 110.4 L390.5 110.9 L392 106.6 L393.5 104.5 L395 108.2 L396.5 106.6 L398 110.1 L399.5 114.2 L401 111.5 L402.5 107.2 L404 113.8 L405.5 113.1 L407 112.7 L408.5 115.2 L410 113.7 L411.5 114.5 L413 107.6 L414.5 118.6 L416 118.7 L417.5 103.4 L419 115.1 L420.5 114.3 L422 109.3 L423.5 110.6 L425 109.8 L426.5 116 L428 110"/><line class="tp-mark" x1="120" x2="120" y1="40" y2="230"/><line class="tp-mark" x1="350" x2="350" y1="40" y2="230"/><text class="tp-t" x="235" y="54" text-anchor="middle">voice-to-voice latency (target ≈ 800 ms)</text><text class="tp-t" x="14" y="222">user stops</text><text class="tp-t" x="356" y="222">agent starts</text></svg><figcaption>The voice stack on tape: everything between the user stopping and the agent starting is latency to budget.</figcaption></figure><!-- deck-concept:end -->
     <div class="series-label">LLM Hub &mdash; Voice & Real-Time Agents</div>
     <h1>Voice &amp; <span class="accent">Real-Time</span> Agents</h1>
     <p class="subtitle">Streaming ASR + TTS, real-time frameworks (Pipecat, LiveKit Agents, OpenAI Realtime), and the latency &amp; turn-taking work that makes voice feel human.</p>
